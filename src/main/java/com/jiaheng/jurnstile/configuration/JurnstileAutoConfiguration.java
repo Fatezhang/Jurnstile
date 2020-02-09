@@ -20,7 +20,7 @@ public class JurnstileAutoConfiguration {
     @ConditionalOnMissingBean
     @ConditionalOnProperty(prefix = "jurnstile", value = "enabled", havingValue = "true")
     public JurnstileCoreService jurnstileCoreService() {
-        return new JurnstileCoreService(jurnstileProperties.getPrefix(), jurnstileProperties.getSuffix());
+        return new JurnstileCoreService();
     }
 
 }
