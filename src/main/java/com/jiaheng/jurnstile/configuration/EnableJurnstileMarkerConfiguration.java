@@ -10,6 +10,6 @@ public class EnableJurnstileMarkerConfiguration {
         return new Marker();
     }
 
-    class Marker {
+    static class Marker {
     }
 }
