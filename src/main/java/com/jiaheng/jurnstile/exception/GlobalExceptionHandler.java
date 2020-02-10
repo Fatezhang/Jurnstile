@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 public class GlobalExceptionHandler {
 
     @ExceptionHandler(JurnstileUnAuthorizationException.class)
-    public ResponseEntity<String> handlerUnAuthorizationException() {
-        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Unauthorization");
+    public ResponseEntity<String> handlerUnAuthorizationException(Throwable tx) {
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(tx.getLocalizedMessage());
     }
 }
