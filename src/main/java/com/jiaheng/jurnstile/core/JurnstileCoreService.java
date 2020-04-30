@@ -4,4 +4,5 @@ import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
 public class JurnstileCoreService {
+
 }

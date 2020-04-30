@@ -9,11 +9,6 @@ plugins {
 
 group = 'com.jiaheng.jurnstile'
 version = '0.0.1'
-sourceCompatibility = '11'
-
-jar {
-    enable = true
-}
 
 repositories {
     jcenter()

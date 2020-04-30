@@ -5,11 +5,13 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class EnableJurnstileMarkerConfiguration {
+
     @Bean
     public Marker enableJurnstileMarkerBean() {
         return new Marker();
     }
 
     static class Marker {
+
     }
 }

@@ -10,5 +10,6 @@ import org.springframework.context.annotation.Configuration;
 @Getter
 @Setter
 public class JurnstileProperties {
-    private String enabled = "true";
+
+    private final String enabled = "true";
 }

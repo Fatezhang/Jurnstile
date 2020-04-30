@@ -5,4 +5,5 @@ import org.springframework.context.annotation.Import;
 
 @Import(EnableJurnstileMarkerConfiguration.class)
 public @interface EnableJurnstile {
+
 }
