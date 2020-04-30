@@ -1,0 +1,68 @@
+plugins {
+    id 'org.springframework.boot' version '2.2.6.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+    id "io.freefair.lombok" version "4.1.6"
+    id 'java-library'
+    id 'java'
+    id 'maven-publish'
+}
+
+group = 'com.jiaheng.jurnstile'
+version = '0.0.1'
+sourceCompatibility = '11'
+
+jar {
+    enable = true
+}
+
+repositories {
+    jcenter()
+    mavenCentral()
+}
+
+lombok {
+    version = "1.18.10"
+}
+
+configurations {
+    developmentOnly
+    runtimeClasspath {
+        extendsFrom developmentOnly
+    }
+}
+
+publishing {
+    repositories {
+        maven {
+            name = 'nexus'
+            url = "http://localhost/nexus/content/repositories/releases"
+            credentials {
+                username = "admin"
+                password = "admin"
+            }
+        }
+    }
+    publications {
+        lib(MavenPublication) {
+            from components.java
+        }
+    }
+}
+
+dependencies {
+    api 'org.springframework.boot:spring-boot-starter'
+    api 'org.springframework.boot:spring-boot-starter-web'
+    api 'org.springframework.boot:spring-boot-starter-aop'
+    api 'org.springframework.boot:spring-boot-autoconfigure'
+    api 'org.springframework.boot:spring-boot-configuration-processor'
+    api 'com.google.guava:guava:28.0-jre'
+    api 'commons-beanutils:commons-beanutils:1.9.4'
+    api 'net.logstash.logback:logstash-logback-encoder:6.+'
+
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.5.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.5.1'
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+}
+
