@@ -1,13 +1,13 @@
-package com.jiaheng.jurnstile.configuration;
+package com.barrier.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class EnableJurnstileMarkerConfiguration {
+public class EnableBarrierMarkerConfiguration {
 
     @Bean
-    public Marker enableJurnstileMarkerBean() {
+    public Marker enableBarrierMarkerBean() {
         return new Marker();
     }
 

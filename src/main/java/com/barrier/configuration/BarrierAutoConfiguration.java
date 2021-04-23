@@ -1,7 +1,7 @@
-package com.jiaheng.jurnstile.configuration;
+package com.barrier.configuration;
 
-import com.jiaheng.jurnstile.core.JurnstileCoreService;
-import com.jiaheng.jurnstile.core.JurnstileInterceptor;
+import com.barrier.core.BarrierCoreService;
+import com.barrier.core.BarrierInterceptor;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
@@ -11,18 +11,18 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
-@ConditionalOnBean(EnableJurnstileMarkerConfiguration.Marker.class)
-public class JurnstileAutoConfiguration implements WebMvcConfigurer {
+@ConditionalOnBean(EnableBarrierMarkerConfiguration.Marker.class)
+public class BarrierAutoConfiguration implements WebMvcConfigurer {
 
     @Bean
     @ConditionalOnMissingBean
-    @ConditionalOnProperty(prefix = "jurnstile", value = "enabled", havingValue = "true")
-    public JurnstileCoreService jurnstileCoreService() {
-        return new JurnstileCoreService();
+    @ConditionalOnProperty(prefix = "barrier", value = "enabled", havingValue = "true")
+    public BarrierCoreService barrierCoreService() {
+        return new BarrierCoreService();
     }
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new JurnstileInterceptor()).addPathPatterns("/*/**");
+        registry.addInterceptor(new BarrierInterceptor()).addPathPatterns("/*/**");
     }
 }
